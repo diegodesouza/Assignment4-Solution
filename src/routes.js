@@ -10,7 +10,7 @@
     // Redirect to home page if no other URL matches
     $urlRouterProvider.otherwise('/');
 
-    // *** Set up UI states ***
+    // Set up UI states
     $stateProvider
 
     // Home page
@@ -35,10 +35,10 @@
       .state('items', {
         url: '/items/{categoryShortName}',
         templateUrl: 'src/templates/items.html',
-        controller: 'ItemsComponentController as ctrl',
+        controller: "ItemsComponentController as ctrl",
         resolve: {
-          items: ['$stateParams', 'MenuDataService', function($stateParams, MenuDataService) {
-            return MenuDataService.getItemsForCategory($stateParams.categoryShortName)
+          items: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
+            return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
           }]
         }
       });
